@@ -25,7 +25,8 @@ variables:
   # used for post-build phases, internal builds only
   - ${{ if and(ne(variables['System.TeamProject'], 'public'), notin(variables['Build.Reason'], 'PullRequest')) }}:
     - group: DotNet-EFCore-SDLValidation-Params
-- name: _HelixType
+    
+  - name: _HelixType
     value: build/product
   - name: _HelixSource
     value: pr/dotnet/efcore/$(Build.SourceBranch)

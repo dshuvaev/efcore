@@ -23,7 +23,7 @@
   </ItemGroup>
   <PropertyGroup>
     <XUnitPublishTargetFramework>netcoreapp3.1</XUnitPublishTargetFramework>
-    <XUnitRuntimeTargetFramework>netcoreapp2.0</XUnitRuntimeTargetFramework>
+    <XUnitRuntimeTargetFramework>netcoreapp2.1</XUnitRuntimeTargetFramework>
     <XUnitRunnerVersion>2.4.1</XUnitRunnerVersion>
     <XUnitArguments></XUnitArguments>
   </PropertyGroup>

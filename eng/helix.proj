@@ -3,7 +3,7 @@
     <HelixSource>pr/dotnet/efcore/$(BUILD_SOURCEBRANCH)</HelixSource>
     <HelixType>test/product/</HelixType>
     <HelixBuild>$(BUILD_BUILDNUMBER)</HelixBuild>
-	<HelixTargetQueues>Ubuntu.1804.Amd64.Open;Ubuntu.1604.Amd64.Open</HelixTargetQueues>
+	<HelixTargetQueues>Windows.10.Amd64.Open</HelixTargetQueues>
 	<Creator>efcore</Creator>
 	
 	<IncludeDotNetCli>true</IncludeDotNetCli>

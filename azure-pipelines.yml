@@ -53,7 +53,7 @@ stages:
  - stage: build
    displayName: Build
    jobs:
-    - template: /eng/common/templates/jobs/jobs.yml
+    - template: /eng/common/templates/job/job.yml
       parameters:
         name: Windows_NT
         enableTelemetry: true

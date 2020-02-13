@@ -26,13 +26,7 @@ variables:
   - ${{ if and(ne(variables['System.TeamProject'], 'public'), notin(variables['Build.Reason'], 'PullRequest')) }}:
     - group: DotNet-EFCore-SDLValidation-Params
     
-  - name: _HelixType
-    value: build/product
-  - name: _HelixSource
-    value: pr/dotnet/efcore/$(Build.SourceBranch)
-  - name: _HelixTestType
-    value: test/product/
-  - name: _XUnitProject
+  - name: _XUnitProjects
     value: $(Build.SourcesDirectory)/test/EFCore.Tests/EFCore.Tests.csproj
   - name: _XUnitPublishTargetFramework
     value: netcoreapp3.1
@@ -67,20 +61,8 @@ stages:
         helixRepo: dotnet/efcore
         agentOs: Windows
         steps:
-        - template: /eng/common/templates/steps/send-to-helix.yml
-          parameters:
-            HelixSource: $(_HelixSource)
-            HelixType: $(_HelixTestType)
-            HelixTargetQueues: Windows.10.Amd64.Open
-            XUnitProjects: $(_XUnitProject)
-            XUnitPublishTargetFramework: $(_XUnitPublishTargetFramework)
-            XUnitRuntimeTargetFramework: $(_XUnitRuntimeTargetFramework)
-            XUnitRunnerVersion: $(_XUnitRunnerVersion)
-            IncludeDotNetCli: true
-            DotNetCliPackageType: $(_DotNetCliPackageType)
-            DotNetCliVersion: $(_DotNetCliVersion)
-            EnableXUnitReporter: true
-            WaitForWorkItemCompletion: true
-            Creator: efcore
-            condition: succeeded()
+        - script: build.cmd -ci
+          displayName: Build
+        - script: .dotnet\dotnet msbuild eng\helix.proj
+          displayName: Send job to helix
         

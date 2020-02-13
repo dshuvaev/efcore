@@ -59,11 +59,17 @@ stages:
         enableTelemetry: true
         enablePublishBuildArtifacts: true
         helixRepo: dotnet/efcore
-        agentOs: Windows
+        pool:
+          ${{ if eq(variables['System.TeamProject'], 'public') }}:
+            name: NetCorePublic-Pool
+            queue: BuildPool.Windows.10.Amd64.VS2017.Open
+          ${{ if ne(variables['System.TeamProject'], 'public') }}:
+            name: NetCoreInternal-Pool
+            queue: BuildPool.Windows.10.Amd64.VS2017
         steps:
         - script: build.cmd -ci
           displayName: Build
-        - script: .dotnet\dotnet msbuild eng\helix.proj /t:Test
+        - script: .dotnet\dotnet msbuild eng\helix.proj
           displayName: Send job to helix
           env:
             SYSTEM_ACCESSTOKEN: $(System.AccessToken) # We need to set this env var to publish helix results to Azure Dev Ops

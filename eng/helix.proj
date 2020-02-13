@@ -1,4 +1,8 @@
 <Project Sdk="Microsoft.DotNet.Helix.Sdk" DefaultTargets="Test">
+<ItemGroup>
+<Reference Include="netstandard" />
+</ItemGroup>
+
   <PropertyGroup>
     <HelixSource>pr/dotnet/efcore/$(BUILD_SOURCEBRANCH)</HelixSource>
     <HelixType>test/product/</HelixType>
@@ -23,7 +27,7 @@
   </ItemGroup>
   <PropertyGroup>
     <XUnitPublishTargetFramework>netcoreapp3.1</XUnitPublishTargetFramework>
-    <XUnitRuntimeTargetFramework>netcoreapp2.1</XUnitRuntimeTargetFramework>
+    <XUnitRuntimeTargetFramework>netcoreapp2.0</XUnitRuntimeTargetFramework>
     <XUnitRunnerVersion>2.4.1</XUnitRunnerVersion>
     <XUnitArguments></XUnitArguments>
   </PropertyGroup>

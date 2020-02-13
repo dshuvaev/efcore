@@ -65,4 +65,6 @@ stages:
           displayName: Build
         - script: .dotnet\dotnet msbuild eng\helix.proj
           displayName: Send job to helix
+          env:
+            SYSTEM_ACCESSTOKEN: $(System.AccessToken) # We need to set this env var to publish helix results to Azure Dev Ops
         

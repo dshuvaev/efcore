@@ -53,7 +53,7 @@ stages:
  - stage: build
    displayName: Build
    jobs:
-    - template: /eng/common/templates/job/job.yml
+    - template: /eng/common/templates/jobs/jobs.yml
       parameters:
         name: Windows_NT
         enableTelemetry: true
@@ -67,7 +67,7 @@ stages:
             name: NetCoreInternal-Pool
             queue: BuildPool.Windows.10.Amd64.VS2017
         steps:
-        - script: build.cmd -ci
+        - script: restore.cmd -ci
           displayName: Build
         - script: .dotnet\dotnet msbuild eng\helix.proj
           displayName: Send job to helix

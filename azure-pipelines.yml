@@ -25,21 +25,6 @@ variables:
   # used for post-build phases, internal builds only
   - ${{ if and(ne(variables['System.TeamProject'], 'public'), notin(variables['Build.Reason'], 'PullRequest')) }}:
     - group: DotNet-EFCore-SDLValidation-Params
-    
-  - name: _XUnitProjects
-    value: $(Build.SourcesDirectory)/test/EFCore.Tests/EFCore.Tests.csproj
-  - name: _XUnitPublishTargetFramework
-    value: netcoreapp3.1
-  - name: _XUnitRuntimeTargetFramework
-    value: netcoreapp2.0
-  - name: _XUnitRunnerVersion
-    value: 2.4.1
-  - name: _DotNetCliPackageType
-    value: sdk
-  - name: _DotNetCliVersion
-    value: 3.1.100
-  - name: _HelixAccessToken
-    value: ''
 
 trigger:
   - master

@@ -52,7 +52,7 @@ stages:
             name: NetCoreInternal-Pool
             queue: BuildPool.Windows.10.Amd64.VS2017
         steps:
-        - script: restore.cmd -ci
+        - script: build.cmd -ci
           displayName: Build
         - script: .dotnet\dotnet msbuild eng\helix.proj
           displayName: Send job to helix

@@ -1,8 +1,4 @@
 <Project Sdk="Microsoft.DotNet.Helix.Sdk" DefaultTargets="Test">
-<ItemGroup>
-<Reference Include="netstandard" />
-</ItemGroup>
-
   <PropertyGroup>
     <HelixSource>pr/dotnet/efcore/$(BUILD_SOURCEBRANCH)</HelixSource>
     <HelixType>test/product/</HelixType>

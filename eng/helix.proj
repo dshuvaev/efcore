@@ -19,7 +19,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <XUnitProject Include="$(RepoRoot)/test/EFCore.Tests/EFCore.Tests.csproj"/>
+    <XUnitProject Include="$(RepoRoot)/test/**/*.csproj"/>
   </ItemGroup>
   <PropertyGroup>
     <XUnitPublishTargetFramework>netcoreapp3.1</XUnitPublishTargetFramework>

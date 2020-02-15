@@ -23,6 +23,7 @@ namespace Microsoft.EntityFrameworkCore.Query
             => new RelationalQueryAsserter<GearsOfWarContext>(
                 CreateContext,
                 new GearsOfWarData(),
+                new ExpectedQueryRewritingVisitor(),
                 entitySorters,
                 entityAsserters,
                 CanExecuteQueryString);

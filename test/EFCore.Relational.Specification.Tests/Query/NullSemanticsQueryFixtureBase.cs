@@ -95,6 +95,7 @@ namespace Microsoft.EntityFrameworkCore.Query
             => new QueryAsserter<NullSemanticsContext>(
                 CreateContext,
                 new NullSemanticsData(),
+                new ExpectedQueryRewritingVisitor(),
                 entitySorters,
                 entityAsserters);
 

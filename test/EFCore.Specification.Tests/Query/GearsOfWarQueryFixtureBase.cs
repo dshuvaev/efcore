@@ -274,6 +274,7 @@ namespace Microsoft.EntityFrameworkCore.Query
             => new QueryAsserter<GearsOfWarContext>(
                 CreateContext,
                 new GearsOfWarData(),
+                new ExpectedQueryRewritingVisitor(),
                 entitySorters,
                 entityAsserters);
 

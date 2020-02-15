@@ -17,10 +17,11 @@ namespace Microsoft.EntityFrameworkCore.TestUtilities
         public RelationalQueryAsserter(
             Func<TContext> contextCreator,
             ISetSource expectedData,
+            ExpectedQueryRewritingVisitor expectedQueryRewritingVisitor,
             Dictionary<Type, object> entitySorters,
             Dictionary<Type, object> entityAsserters,
             bool canExecuteQueryString)
-            : base(contextCreator, expectedData, entitySorters, entityAsserters)
+            : base(contextCreator, expectedData, expectedQueryRewritingVisitor, entitySorters, entityAsserters)
         {
             _canExecuteQueryString = canExecuteQueryString;
         }

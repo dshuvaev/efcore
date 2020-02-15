@@ -202,8 +202,22 @@ namespace Microsoft.EntityFrameworkCore.Query
             => new QueryAsserter<ComplexNavigationsContext>(
                 CreateContext,
                 new ComplexNavigationsDefaultData(),
+                CreateExpectedQueryRewritingVisitor(),
                 entitySorters,
                 entityAsserters);
+
+        protected virtual ExpectedQueryRewritingVisitor CreateExpectedQueryRewritingVisitor()
+            => new ExpectedQueryRewritingVisitor(new Dictionary<(Type, string), string[]>
+                {
+                    { (typeof(Level1), "OneToMany_Optional_Self_Inverse1Id"), new[] { "OneToMany_Optional_Self_Inverse1", "Id" } },
+                    { (typeof(Level1), "OneToOne_Optional_Self1Id"), new[] { "OneToOne_Optional_Self1", "Id" } },
+                    { (typeof(Level2), "OneToMany_Optional_Self_Inverse2Id"), new[] { "OneToMany_Optional_Self_Inverse2", "Id" } },
+                    { (typeof(Level2), "OneToOne_Optional_Self2Id"), new[] { "OneToOne_Optional_Self2", "Id" } },
+                    { (typeof(Level3), "OneToMany_Optional_Self_Inverse3Id"), new[] { "OneToMany_Optional_Self_Inverse3", "Id" } },
+                    { (typeof(Level3), "OneToOne_Optional_Self3Id"), new[] { "OneToOne_Optional_Self3", "Id" } },
+                    { (typeof(Level4), "OneToMany_Optional_Self_Inverse4Id"), new[] { "OneToMany_Optional_Self_Inverse4", "Id" } },
+                    { (typeof(Level4), "OneToOne_Optional_Self4Id"), new[] { "OneToOne_Optional_Self4", "Id" } },
+                });
 
         public QueryAsserterBase QueryAsserter { get; set; }
 

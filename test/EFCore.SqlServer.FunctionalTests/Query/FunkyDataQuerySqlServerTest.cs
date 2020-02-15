@@ -462,6 +462,7 @@ END <> [f].[NullableBool]) OR [f].[NullableBool] IS NULL");
                 => new RelationalQueryAsserter<FunkyDataContext>(
                     CreateContext,
                     new FunkyDataData(),
+                    new ExpectedQueryRewritingVisitor(),
                     entitySorters,
                     entityAsserters,
                     CanExecuteQueryString);

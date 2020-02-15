@@ -23,6 +23,7 @@ namespace Microsoft.EntityFrameworkCore.Query
             => new RelationalQueryAsserter<SpatialContext>(
                 CreateContext,
                 new SpatialData(GeometryFactory),
+                new ExpectedQueryRewritingVisitor(),
                 entitySorters: null,
                 entityAsserters: null,
                 CanExecuteQueryString);

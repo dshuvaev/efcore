@@ -18,6 +18,7 @@ namespace Microsoft.EntityFrameworkCore.Query
             => new RelationalQueryAsserter<ComplexNavigationsContext>(
                 CreateContext,
                 new ComplexNavigationsDefaultData(),
+                CreateExpectedQueryRewritingVisitor(),
                 entitySorters,
                 entityAsserters,
                 CanExecuteQueryString);

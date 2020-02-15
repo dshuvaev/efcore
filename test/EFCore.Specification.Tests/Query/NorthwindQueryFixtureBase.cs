@@ -39,6 +39,7 @@ namespace Microsoft.EntityFrameworkCore.Query
             => new QueryAsserter<NorthwindContext>(
                 CreateContext,
                 new NorthwindData(),
+                new ExpectedQueryRewritingVisitor(),
                 entitySorters,
                 entityAsserters);
 

@@ -25,6 +25,7 @@ namespace Microsoft.EntityFrameworkCore.Query
                 => new RelationalQueryAsserter<PoolableDbContext>(
                     CreateContext,
                     new OwnedQueryData(),
+                    new ExpectedQueryRewritingVisitor(),
                     entitySorters,
                     entityAsserters,
                     CanExecuteQueryString);

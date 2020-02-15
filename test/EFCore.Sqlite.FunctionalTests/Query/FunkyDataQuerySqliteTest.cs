@@ -27,6 +27,7 @@ namespace Microsoft.EntityFrameworkCore.Query
                 => new RelationalQueryAsserter<FunkyDataContext>(
                     CreateContext,
                     new FunkyDataData(),
+                    new ExpectedQueryRewritingVisitor(),
                     entitySorters,
                     entityAsserters,
                     CanExecuteQueryString);

@@ -12,10 +12,8 @@
     
     <EnableAzurePipelinesReporter>true</EnableAzurePipelinesReporter>
     <FailOnTestFailure>true</FailOnTestFailure>
-
     <EnableXUnitReporter>true</EnableXUnitReporter>
     <FailOnMissionControlTestFailure>true</FailOnMissionControlTestFailure>
-
   </PropertyGroup>
 
   <ItemGroup>
@@ -26,5 +24,6 @@
     <XUnitRuntimeTargetFramework>netcoreapp2.0</XUnitRuntimeTargetFramework>
     <XUnitRunnerVersion>2.4.1</XUnitRunnerVersion>
     <XUnitArguments></XUnitArguments>
+	<XUnitWorkItemTimeout>"00:30:00"</XUnitWorkItemTimeout>
   </PropertyGroup>
 </Project>

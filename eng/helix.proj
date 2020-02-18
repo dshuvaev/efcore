@@ -10,7 +10,7 @@
     <DotNetCliPackageType>sdk</DotNetCliPackageType>
     <DotNetCliVersion>3.1.100</DotNetCliVersion>
     
-    <EnableAzurePipelinesReporter>false</EnableAzurePipelinesReporter>
+    <EnableAzurePipelinesReporter>true</EnableAzurePipelinesReporter>
     <FailOnTestFailure>true</FailOnTestFailure>
 
     <EnableXUnitReporter>true</EnableXUnitReporter>
